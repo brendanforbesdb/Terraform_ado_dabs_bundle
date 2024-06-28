@@ -1,0 +1,12 @@
+# The main pipeline for Terraform_ado_dabs_bundle
+resources:
+  pipelines:
+    Terraform_ado_dabs_bundle_pipeline:
+      name: Terraform_ado_dabs_bundle_pipeline
+      target: Terraform_ado_dabs_bundle_${bundle.environment}
+      libraries:
+        - notebook:
+            path: ../src/dlt_pipeline.ipynb
+
+      configuration:
+        bundle.sourcePath: /Workspace/${workspace.file_path}/src
